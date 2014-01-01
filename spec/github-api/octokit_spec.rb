@@ -1,9 +1,9 @@
 require 'octokit'
 
 describe "Auth" do
-  it "should read from the .netrc" do
-    client = Octokit::Client.new netrc: true
+  let!(:client) { Octokit::Client.new netrc: true }
 
+  it "should read from the .netrc" do
     client.login.should == "infoactive"
   end
 end
